@@ -1,5 +1,3 @@
-import time
-
 from flask import Flask, request
 from twilio.twiml.voice_response import VoiceResponse, Gather
 
@@ -25,13 +23,13 @@ def welcome():
 
         # <Say> a different message depending on the caller's choice
         if choice == '1':
+            # response.say("you chose one")
             survey(response)
             return str(response)
         else:
             response.say("Sorry, I don't understand that choice.")
     else:
         response.say(message)
-        survey(response)
 
     # Start our <Gather> verb
     gather = Gather(num_digits=1)
@@ -51,47 +49,39 @@ def survey(response):
                  "According to you, what is the purpose of this object? What could it be used for?",
                  "Do you know about any rules in terms of how the object needs to be treated? What should, or should not be done with it?"]
 
-    response.say("Let's get started! Press zero when you finished.", language="en-GB")
-
-    # response.record()
+    response.say("Let's get started! Press zero when you finished.")
 
     for j in range(1,5):
         for i in range(1,4):
             output = "Question " + str(i) + ": " + questions[i-1]
-            response.say(output, language="en-GB")
-            time.sleep(5)
+            response.say(output)
+            # response.record(max_length=2)
 
         if j != 4:
             next_object = "Thank you for answering all questions about the object " + str(j) +  ". We will now continue with the next object."
         response.say(next_object)
 
-    response.say("Thank you for completing this survey and helping us to get a better understanding" +
-                 "for how people perceive colonial heritage objects. The call will now automatically end.",
-                 language="en-GB")
+    response.say("""Thank you for completing this survey and helping us to get a better understanding
+                    for how people perceive colonial heritage objects. The call will now automatically end.""")
 
     response.hangup()
     return response
 
 
 
-# @app.route("/answer", methods=['GET', 'POST'])
-# def answer_call():
-#     """Respond to incoming phone calls with a brief message."""
-#     # Start our TwiML response
-#     resp = VoiceResponse()
+@app.route("/test", methods=['GET', 'POST'])
+def answer_call():
+    """Respond to incoming phone calls with a brief message."""
+    # Start our TwiML response
+    resp = VoiceResponse()
 
-#     # Read a message aloud to the caller
-#     resp.say("Test for hp project", voice='alice')
+    # Read a message aloud to the caller
+    resp.say("Test for hp project", voice='alice')
 
-#     # Start our <Gather> verb
-#     gather = Gather(num_digits=1)
-#     gather.say('For sales, press 1. For support, press 2.')
-#     resp.append(gather)
+    # If the user doesn't select an option, redirect them into a loop
+    resp.redirect('/test')
 
-#     # If the user doesn't select an option, redirect them into a loop
-#     resp.redirect('/answer')
-
-#     return str(resp)
+    return str(resp)
 
 if __name__ == "__main__":
     app.run(debug=True)
