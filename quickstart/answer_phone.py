@@ -66,8 +66,11 @@ if __name__ == "__main__":
     app.run(debug=True)
 
 # in quickstart:
+#   pip install virutalenv
+#   virtualenv env
 #   dir *env*
 #   . env/bin/activate
-#   python3 answer_phone.py
+#   pip install -r reqs.txt
+# python3 answer_phone.py
 # in new terminal: ngrok http 5000
 # copy-paste ngrok link to twilio
