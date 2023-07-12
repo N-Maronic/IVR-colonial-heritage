@@ -3,7 +3,7 @@ from twilio.twiml.voice_response import VoiceResponse, Gather
 
 app = Flask(__name__)
 
-
+# Starting point of the IVR
 @app.route('/welcome', methods=['GET', 'POST'])
 def welcome():
     response = VoiceResponse()
@@ -21,7 +21,7 @@ def welcome():
 
     return str(response)
 
-
+# Output the question and record the answer of the participant
 @app.route("/question/<question_id>/<obj_id>", methods=['POST'])
 def question(question_id, obj_id):
     questions = ["What do you see? Please describe the object. ",
@@ -41,6 +41,7 @@ def question(question_id, obj_id):
 
     return str(response)
 
+# after recording, route the IVR to the next question / next object
 @app.route("/next/<question_id>/<obj_id>", methods=['POST'])
 def next(question_id, obj_id):
     response = VoiceResponse()
@@ -64,13 +65,3 @@ def next(question_id, obj_id):
 
 if __name__ == "__main__":
     app.run(debug=True)
-
-# in quickstart:
-#   pip install virutalenv
-#   virtualenv env
-#   dir *env*
-#   . env/bin/activate
-#   pip install -r reqs.txt
-# python3 answer_phone.py
-# in new terminal: ngrok http 5000
-# copy-paste ngrok link to twilio
