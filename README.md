@@ -8,9 +8,11 @@ We created a IVR (interactive voice response) system to gather information about
 ## Build status
 This project is still under development. More specifically, we are still working on including Dagbani as a language option for the survey. 
 
-## Installation Guide (for python3)
+## Installation Guide
+
 Note: We are assuming you have a valid Twilio account.
 
+### Python
 Run the app locally following these steps:
 
   1. Clone this repository and `cd` into it.
@@ -43,7 +45,16 @@ Run the app locally following these steps:
 
 Now your server, and consequently your IVR, is up an running. 
 
+### Node.js
+   1. Create a new Service in your Twilio Functions and Assets ([documentation](https://www.twilio.com/docs/serverless/functions-assets/functions/create-service))
+   2. Copy-paste the JavaScript files from the Node.js folder in function files in your Twilio Functions and Assets ([documentation](https://www.twilio.com/docs/serverless/functions-assets/functions))
+   3. Deploy your Service
+   4. Copy-paste the URL to your Twilio Console ![Screenshot Twilio Voice Configuration](/Screenshots/Voice_Configuration.png)
+
 ## Testing
+### Python
 To check whether the Webhook correctly routes to your localhost, simply paste the ngrok URL in your browser of choice.
 
+### Both implementations
 To test the voice application, simply call your Twilio number. The recordings of the call can then be found under 'Call Logs' on your Twilio console.
+![Screenshot Twilio Call Details](/Screenshots/Call_Details.png)
