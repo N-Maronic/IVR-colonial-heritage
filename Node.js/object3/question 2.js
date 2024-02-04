@@ -4,8 +4,9 @@ exports.handler = function(context, event, callback) {
   
     twiml.say(question);
     twiml.record({
-        action: 'https://colonial-heritage-4866.twil.io/object2/question/3',
-        finishOnKey: '#'
+        action: 'https://colonial-heritage-4866.twil.io/object3/question/3',
+        finishOnKey: '#',
+        transcribe: true
     });
   
     return callback(null, twiml);

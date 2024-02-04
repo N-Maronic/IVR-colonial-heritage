@@ -3,7 +3,7 @@ This is a project conducted in fulfillment of the requirements for the Honours P
 
 ## About the project
 The aim of this project is to use crowdsourcing techniques to tag objects from the colonial period exhibited in Dutch museums.
-We created a IVR (interactive voice response) system to gather information about colonial heritage objects that are originally from Ghana, and that are no exhibited in the Wereldculturen Collectie. We are using the [Twilio platform](https://www.twilio.com/en-us), which offers a Voice API to create a personalized voice interface.
+We created a IVR (interactive voice response) system to gather information about colonial heritage objects that are originally from Ghana, and that are now exhibited in the Wereldculturen Collectie. We are using the [Twilio platform](https://www.twilio.com/en-us), which offers a Voice API to create a personalized voice interface.
 
 ## Build status
 This project is still under development. More specifically, we are still working on including Dagbani as a language option for the survey. 
@@ -43,7 +43,7 @@ Run the app locally following these steps:
       to create a Webhook to your locally running application. You can find more information about ngrok [here](https://ngrok.com/)
   11. Copy-paste the ngrok link to your Twilio console
 
-Now your server, and consequently your IVR, is up an running. 
+Now your server, and consequently your IVR, is up and running. 
 
 ### Node.js
    1. Create a new Service in your Twilio Functions and Assets ([documentation](https://www.twilio.com/docs/serverless/functions-assets/functions/create-service))
@@ -58,3 +58,8 @@ To check whether the Webhook correctly routes to your localhost, simply paste th
 ### Both implementations
 To test the voice application, simply call your Twilio number. The recordings of the call can then be found under 'Call Logs' on your Twilio console.
 ![Screenshot Twilio Call Details](/Screenshots/Call_Details.png)
+
+## Retrieving recordings and transcripts
+In order to store links to the recorded calls and the respective transcripts in a local spreadsheet, simply execute the 'retrieveCalls.py' file after the following steps:
+   1. Save your Twilio SID and authentication token in the twilio.env file to set the environment parameters
+   2. execute ```source ./twilio.env``` in the terminal 
