@@ -1,4 +1,4 @@
-# HP-Project
+# IVR colonial heritage
 This is a project conducted in fulfillment of the requirements for the Honours Programme at the Vrije Universiteit Amsterdam, which is an excellence annotation to the VU Bachelor of Science degree in Computer Science.
 
 ## About the project
@@ -11,6 +11,8 @@ This project is still under development. More specifically, we are still working
 ## Installation Guide
 
 Note: We are assuming you have a valid Twilio account.
+
+The next two sections show step-by-step how to set up the IVR. The first option is using Python and running on a webhook connected to your local machine. The second option, is using the Twilio Service, including functions and assets, which runs on the Node.js engine.
 
 ### Python
 Run the app locally following these steps:

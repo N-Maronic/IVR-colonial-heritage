@@ -3,6 +3,8 @@ exports.handler = function(context, event, callback) {
     const obj1 = 'Let\'s begin with object number 1 in the red frame.';
     const question = 'Question 1: What do you see? Please describe the object. ';
   
+    
+    twiml.say("Let\'s get started! Please record your answer after the beep and then hit the pound sign. ")
     twiml.say(question);
     //or using asset: twiml.play('https://colonial-heritage-4866.twil.io/question%201.mp3')
     
