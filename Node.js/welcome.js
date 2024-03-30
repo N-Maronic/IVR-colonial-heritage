@@ -1,19 +1,22 @@
 exports.handler = function(context, event, callback) {
+    // setting up some TWiML to respond to with this function
     let twiml = new Twilio.twiml.VoiceResponse();
-
-    const welcome_message = 'Hello, thank you for participating at identifying and describing objects from Ghana ' 
-        + 'that are now displayed in Dutch Museums. For each of the three objects we will ask you three questions. '
-        + 'Please answer the questions to the best of your abilities. We will evaluate your recordings and forward '
-        + 'our results to the museum, hence they can add new information about the objects to their database. '
-        + 'Please note that we will only forward general findings; your responses will be kept anonymous and confidential.'
-        + 'If you agree to the previously described terms and you would like to continue with the survey, please press 1.';
-
-    twiml.say(welcome_message);
-        
-    twiml.gather({
-        action: 'https://colonial-heritage-4866.twil.io/object1/question/1',
-        finishOnKey: '1'
-        });
   
+    const welcome_message = 'Hello, thank you for participating in describing objects from Ghana ' 
+          + 'that are now displayed in Dutch Museums. Your responses will be kept anonymous and confidential. '
+          + 'Only general findings will be shared. If you agree to the previously described terms, ' 
+          + 'please say yes and then hit the hash sign.';
+  
+    // output the message
+    twiml.say(welcome_message);
+    
+    // record the participants response
+    twiml.record({
+        // redirect to the first question after the participant pressed '#'
+        action: 'https://colonial-heritage-4866.twil.io/object1/question/1',
+        finishOnKey: '#'
+      });
+  
+    // we return the Twiml voice response after the function was invoked
     return callback(null, twiml);
   };
