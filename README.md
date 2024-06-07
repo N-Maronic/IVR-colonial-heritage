@@ -5,9 +5,6 @@ This is a project conducted in fulfillment of the requirements for the Honours P
 The aim of this project is to use crowdsourcing techniques to tag objects from the colonial period exhibited in Dutch museums.
 We created a IVR (interactive voice response) system to gather information about colonial heritage objects that are originally from Ghana, and that are now exhibited in the Wereldculturen Collectie. We are using the [Twilio platform](https://www.twilio.com/en-us), which offers a Voice API to create a personalized voice interface.
 
-## Build status
-This project is still under development. More specifically, we are still working on including Dagbani as a language option for the survey. 
-
 ## Installation Guide
 
 Note: We are assuming you have a valid Twilio account.
