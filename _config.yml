@@ -2,7 +2,7 @@ title: Colonial Heritage IVR Project
 description: >
   This project is part of the Colonial Heritage Project conducted within the Honours Program of my Bachelor's degree.
   It explores the use of Interactive Voice Response (IVR) technology to extract polyvocal information about colonial heritage objects.
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "https://your-username.github.io" # the base hostname & protocol for your site
+baseurl: "/IVR-colonial-heritage/" # the subpath of your site, e.g. /blog
+url: "https://n-maronic.github.io" # the base hostname & protocol for your site
 
 theme: minima
