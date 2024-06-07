@@ -5,4 +5,4 @@ description: >
 baseurl: "/IVR-colonial-heritage/" # the subpath of your site, e.g. /blog
 url: "https://n-maronic.github.io" # the base hostname & protocol for your site
 
-theme: minima
+theme: jekyll-theme-minimal
